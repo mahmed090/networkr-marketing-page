@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+/* =============================================================================
+   Theme — Tenant / white-label variables
+   Override these per tenant (e.g. in a wrapper class or data-tenant attribute).
+   ============================================================================= */
+
+@theme {
+  /* Typography */
+  --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Playfair Display", "Georgia", serif;
+
+  /* Semantic colors — primary (headlines, CTA, bold) */
+  --color-primary: #000000;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #6b7280;
+  --color-muted: #9ca3af;
+  --color-muted-foreground: #4b5563;
+  --color-background: #ffffff;
+  --color-surface: #f9fafb;
+  --color-border: #f3f4f6;
+  --color-border-strong: #e5e7eb;
+  --color-accent: #000000;
+  --color-card: #ffffff;
+  --color-card-from: #f9fafb;
+  --color-card-to: #ffffff;
+  --color-icon: #9ca3af;
+
+  /* Section accent (e.g. Core Problem badge — alert/callout) */
+  --color-section-alert: #b45309;
+  --color-section-alert-bg: #fff7ed;
+  --color-section-alert-border: #fed7aa;
+
+  /* Section solution (e.g. Networkr Solution badge — green/success) */
+  --color-section-solution: #15803d;
+  --color-section-solution-bg: #f0fdf4;
+  --color-section-solution-border: #bbf7d0;
+
+  /* Section value (e.g. Strategic Value badge — blue) */
+  --color-section-value: #1d4ed8;
+  --color-section-value-bg: #eff6ff;
+  --color-section-value-border: #bfdbfe;
+
+  /* Section implementation (e.g. Implementation badge — purple) */
+  --color-section-implementation: #6d28d9;
+  --color-section-implementation-bg: #f5f3ff;
+  --color-section-implementation-border: #ddd6fe;
+
+  /* Checklist success (green check) */
+  --color-check-success: #16a34a;
+  --color-check-success-bg: #dcfce7;
+
+  /* Buttons */
+  --color-button-primary-bg: #000000;
+  --color-button-primary-text: #ffffff;
+  --color-button-primary-hover-bg: #1f2937;
+  --color-button-secondary-border: #000000;
+  --color-button-secondary-text: #000000;
+
+  /* Radii */
+  --radius-pill: 9999px;
+  --radius-card: 1.5rem;
+  --radius-tag: 9999px;
+
+  /* Spacing (base unit for consistency) */
+  --spacing-unit: 0.25rem;
+
+  /* Hero / display typography (reference in components via var()) */
+  --font-size-hero: clamp(2.5rem, 6vw + 1rem, 8rem);
+  --font-size-tagline: clamp(1.125rem, 2vw + 0.5rem, 1.5rem);
+  --font-size-body: 1rem;
+  --font-size-body-lg: 1.125rem;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-light: 300;
+
+  /* Grid (hero background) */
+  --grid-size: 60px;
+  --grid-opacity: 0.03;
+  --gradient-blob-opacity: 0.02;
+}
+
+/* Optional: expose same tokens as CSS custom properties on :root for non-Tailwind use */
+:root {
+  --tenant-font-sans: var(--font-sans);
+  --tenant-font-display: var(--font-display);
+  --tenant-color-primary: var(--color-primary);
+  --tenant-color-primary-foreground: var(--color-primary-foreground);
+  --tenant-color-secondary: var(--color-secondary);
+  --tenant-color-muted: var(--color-muted);
+  --tenant-color-background: var(--color-background);
+  --tenant-color-surface: var(--color-surface);
+  --tenant-color-border: var(--color-border);
+  --tenant-color-button-primary-bg: var(--color-button-primary-bg);
+  --tenant-color-button-primary-text: var(--color-button-primary-text);
+  --tenant-radius-pill: var(--radius-pill);
+  --tenant-radius-card: var(--radius-card);
+  --tenant-spacing-unit: var(--spacing-unit);
+}
