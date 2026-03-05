@@ -29,15 +29,14 @@ export default function Footer() {
               to="/"
               className="flex items-center gap-1 mb-4 text-black hover:opacity-80 transition-opacity"
             >
-              <span className="text-2xl font-semibold tracking-tight">{brandName}</span>
-              <span className="text-2xl font-light text-gray-300">.</span>
+              <img src={footer.logo} alt={brandName} className="w-8 md:w-10 h-8 md:h-10" />
             </Link>
             <p className="text-gray-500 text-sm leading-relaxed mb-6 max-w-xs">
               {footer.tagline}
             </p>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 border border-gray-100 text-xs text-gray-500">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-50 border border-gray-100 text-xs text-gray-500">
               <span
-                className="w-2 h-2 rounded-full bg-green-400 inline-block animate-pulse"
+                className="w-2 h-2 rounded-lg bg-green-400 inline-block animate-pulse"
                 aria-hidden
               />
               {footer.onboardingBadge}
@@ -54,12 +53,12 @@ export default function Footer() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder={footer.newsletter.placeholder}
-                className="flex-1 min-w-0 px-4 py-3 rounded-full border border-gray-200 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900/20 focus:border-gray-300 transition-colors"
+                className="flex-1 min-w-0 px-4 h-9 rounded-lg border border-gray-200 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900/20 focus:border-gray-300 transition-colors"
                 aria-label={footer.newsletter.placeholder}
               />
               <button
                 type="submit"
-                className="px-5 py-3 rounded-full bg-black text-white text-sm font-medium hover:bg-gray-800 transition-colors shrink-0"
+                className="px-5 h-9 rounded-lg bg-black text-white text-sm font-medium hover:bg-gray-800 transition-colors shrink-0"
               >
                 {footer.newsletter.submitLabel}
               </button>

@@ -46,6 +46,16 @@
   --color-section-implementation-bg: #f5f3ff;
   --color-section-implementation-border: #ddd6fe;
 
+  /* Section partner opportunity (e.g. Partner Opportunity badge — orange) */
+  --color-section-partner-opportunity: oklch(66.6% 0.179 58.318);
+  --color-section-partner-opportunity-bg: oklch(98.7% 0.022 95.277);
+  --color-section-partner-opportunity-border: oklch(96.2% 0.059 95.617);
+
+  /* Section about networkr (e.g. About Networkr badge — blue) */
+  --color-section-about-networkr: oklch(55.1% 0.027 264.364);
+  --color-section-about-networkr-bg: oklch(96.7% 0.003 264.542);
+  --color-section-about-networkr-border: oklch(92.8% 0.006 264.531);
+
   /* Checklist success (green check) */
   --color-check-success: #16a34a;
   --color-check-success-bg: #dcfce7;

@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import { useTenantStore } from '../stores/tenantStore'
+import CtaButton from '../components/ui/CtaButton'
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -19,7 +20,7 @@ export default function Navbar() {
     }
   }, [mobileOpen, closeMobile])
 
-  const { brandName, navLinks, navCta } = siteData
+  const { brandName, navLinks, navCta, logo } = siteData
 
   const scrollToHash = useCallback((hash: string) => {
     const el = document.getElementById(hash)
@@ -36,13 +37,13 @@ export default function Navbar() {
         className="fixed top-0 left-0 right-0 z-50 w-full bg-background/95 supports-backdrop-filter:bg-background/80 backdrop-blur-sm border-b border-border"
         role="banner"
       >
-        <div className="w-11/12 lg:w-full lg:max-w-7xl mx-auto flex items-center justify-between h-14 md:h-16">
+        <div className="app-container flex items-center justify-between h-14 md:h-16">
           <Link
             to="/"
             className="text-primary font-display font-medium text-lg tracking-tight hover:opacity-80 transition-opacity"
             onClick={closeMobile}
           >
-            {brandName}
+            <img src={logo} alt={brandName} className="w-8 md:w-9 h-8 md:h-9" />
           </Link>
 
           <nav
@@ -50,9 +51,9 @@ export default function Navbar() {
             aria-label="Main navigation"
           >
             {navLinks.map(({ label, hash }) => (
-              <a
+              <Link
                 key={label}
-                href={`#${hash}`}
+                to={`#${hash}`}
                 onClick={(e) => {
                   e.preventDefault()
                   scrollToHash(hash)
@@ -60,18 +61,20 @@ export default function Navbar() {
                 className="text-secondary text-sm font-medium hover:text-primary transition-colors cursor-pointer"
               >
                 {label}
-              </a>
+              </Link>
             ))}
-            <a
-              href={`#${navCta.hash}`}
+            <CtaButton
+              to={`#${navCta.hash}`}
               onClick={(e) => {
                 e.preventDefault()
                 scrollToHash(navCta.hash)
               }}
-              className="ml-2 px-5 py-2.5 rounded-(--radius-pill) bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-all cursor-pointer"
+              variant="outline"
+              size="sm"
+              className='h-8 text-xs'
             >
               {navCta.label}
-            </a>
+            </CtaButton>
           </nav>
 
           <button
@@ -99,9 +102,9 @@ export default function Navbar() {
             aria-label="Mobile navigation"
           >
             {navLinks.map(({ label, hash }) => (
-              <a
+              <Link
                 key={label}
-                href={`#${hash}`}
+                to={`#${hash}`}
                 onClick={(e) => {
                   e.preventDefault()
                   scrollToHash(hash)
@@ -109,10 +112,10 @@ export default function Navbar() {
                 className="py-3 px-4 text-secondary font-medium hover:text-primary hover:bg-surface rounded-lg transition-colors"
               >
                 {label}
-              </a>
+              </Link>
             ))}
-            <a
-              href={`#${navCta.hash}`}
+            <Link
+              to={`#${navCta.hash}`}
               onClick={(e) => {
                 e.preventDefault()
                 scrollToHash(navCta.hash)
@@ -120,7 +123,7 @@ export default function Navbar() {
               className="mt-4 mx-4 py-3 rounded-(--radius-pill) bg-primary text-primary-foreground text-center font-medium hover:opacity-90 transition-all"
             >
               {navCta.label}
-            </a>
+            </Link>
           </nav>
         </div>
       )}

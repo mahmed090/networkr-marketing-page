@@ -70,6 +70,8 @@ export interface SolutionData {
   badge: string
   headline: string
   headlineItalic: string
+  /** Optional logo URL for section title (shown on the right) */
+  universityLogo?: string
   universityName: string
   subtitle: string
   cards: SolutionFeatureCard[]
@@ -186,6 +188,7 @@ export interface NextStepData {
 }
 
 export interface FooterData {
+  logo: string
   /** Short description under the logo */
   tagline: string
   /** Badge text (e.g. "Now onboarding select institutions") */
@@ -205,6 +208,7 @@ export interface FooterData {
 
 export interface SiteData {
   brandName: string
+  logo: string
   /** Institution name for copy (e.g. "UET Peshawar"); used in Strategic Value body placeholder */
   institutionName: string
   navLinks: NavLink[]
@@ -281,7 +285,8 @@ const defaultCoreProblem: CoreProblemData = {
 const defaultSolution: SolutionData = {
   badge: 'The Networkr Solution',
   headline: 'Activating the ',
-  headlineItalic: 'Alumni Network',
+  headlineItalic: 'Alumni Network Of',
+  universityLogo: '/uet-peshawar.png',
   universityName: 'UET Peshawar',
   subtitle:
     'Networkr transforms your alumni database into a structured private professional network without increasing administrative burden.',
@@ -423,6 +428,7 @@ const defaultNextStep: NextStepData = {
 const defaultFooter: FooterData = {
   tagline:
     'The Private Infrastructure for Alumni Power. Turning alumni data into active professional capital.',
+  logo: '/logo.png',  
   onboardingBadge: 'Now onboarding select institutions',
   copyright: '© 2026 Networkr, Inc. All rights reserved.',
   handshakeTagline: 'The Handshake for Alumni Networks',
@@ -436,6 +442,7 @@ const defaultFooter: FooterData = {
 
 const defaultSiteData: SiteData = {
   brandName: 'Networkr',
+  logo: '/logo.png',
   institutionName: 'your institution',
   navLinks: [
     { label: 'Problem', hash: 'problem' },

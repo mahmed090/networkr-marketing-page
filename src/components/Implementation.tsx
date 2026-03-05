@@ -3,6 +3,7 @@ import { motion } from '../lib/motion'
 import { containerSection, itemSection, defaultViewport } from '../lib/motion'
 import { useTenantStore } from '../stores/tenantStore'
 import type { ImplementationStepIconName } from '../utils/data'
+import SectionTitle from './ui/SectionTitle'
 
 const stepIconMap = {
   database: Database,
@@ -21,41 +22,25 @@ export default function Implementation() {
   return (
     <motion.section
       id="implementation"
-      className="py-20 md:py-32 px-4 sm:px-6 bg-linear-to-b from-background to-surface/50"
+      className="py-14 lg:py-24 bg-linear-to-b from-background to-surface/50"
       initial="hidden"
       whileInView="visible"
       viewport={defaultViewport}
       variants={containerSection}
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="app-container">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left: badge, heading, subtitle, requirements card */}
           <div>
-            <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6 border font-display"
-              style={{
-                backgroundColor: 'var(--color-section-implementation-bg)',
-                borderColor: 'var(--color-section-implementation-border)',
-                color: 'var(--color-section-implementation)',
-              }}
-              variants={itemSection}
-            >
-              <Rocket className="w-3.5 h-3.5" aria-hidden />
-              {impl.badge}
-            </motion.div>
-            <motion.h2
-              className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-primary mb-6 font-display"
-              variants={itemSection}
-            >
-              {impl.headline}
-              <span className="font-display italic">{impl.headlineItalic}</span>
-            </motion.h2>
-            <motion.p
-              className="text-lg sm:text-xl text-secondary font-light mb-12"
-              variants={itemSection}
-            >
-              {impl.subtitle}
-            </motion.p>
+            <SectionTitle
+              tagVariant="implementation"
+              tagIcon={<Rocket className="w-3.5 h-3.5" aria-hidden />}
+              badge={impl.badge}
+              headline={impl.headline}
+              headlineItalic={impl.headlineItalic}
+              subtitle={impl.subtitle}
+              className='grid items-center gap-5 justify-items-start text-left mb-7'
+            />
             <motion.div
               className="p-6 sm:p-8 rounded-3xl bg-background border border-border shadow-lg shadow-gray-100/80"
               variants={itemSection}
@@ -86,7 +71,7 @@ export default function Implementation() {
           </div>
 
           {/* Right: vertical steps with connector line */}
-          <div className="relative">
+          <div className="relative mt-0 md:mt-28">
             {/* Vertical connector line — runs through center of first icon (left-7 = 1.75rem), from top of first step to bottom */}
             <div
               className="absolute left-7 top-14 bottom-14 w-px bg-linear-to-b from-border-strong to-transparent origin-top"
