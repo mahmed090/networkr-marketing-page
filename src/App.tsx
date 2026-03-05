@@ -11,12 +11,21 @@ import AboutNetworkr from './components/AboutNetworkr'
 import NexStep from './components/NexStep'
 import Footer from './layouts/Footer'
 import { useTenantStore } from './stores/tenantStore'
+import { applySeo } from './utils/seo'
 
 export default function App() {
   const initFromConfig = useTenantStore((s) => s.initFromConfig)
+  const tenantId = useTenantStore((s) => s.tenantId)
+  const siteData = useTenantStore((s) => s.siteData)
+
   useEffect(() => {
     initFromConfig()
   }, [initFromConfig])
+
+  // Update document head (title, meta, og, twitter) when tenant / siteData changes
+  useEffect(() => {
+    applySeo(siteData.seo)
+  }, [tenantId, siteData.seo])
 
   return (
     <div className="min-h-screen bg-background">
