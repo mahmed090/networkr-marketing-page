@@ -115,7 +115,7 @@ export default function StrategicValue() {
             className="relative"
             variants={itemFadeScale}
           >
-            <div className="relative p-6 md:p-8 lg:p-10 rounded-3xl border border-section-value/15 bg-card shadow-sm overflow-hidden">
+            <div className="relative p-6 md:p-8 rounded-3xl border border-section-value/15 bg-card shadow-sm overflow-hidden">
               {/* Accent corner */}
               <div
                 className="absolute top-0 right-0 w-32 h-32 rounded-full opacity-[0.06] -translate-y-1/2 translate-x-1/2"
@@ -129,7 +129,7 @@ export default function StrategicValue() {
                 >
                   <Quote className="w-8 h-8 md:w-10 md:h-10" strokeWidth={1.25} />
                 </span>
-                <p className="font-display text-lg md:text-xl lg:text-2xl font-light text-primary leading-snug italic">
+                <p className="font-display text-sm sm:text-base md:text-lg font-light text-primary leading-snug italic">
                   {strategicValue.quote}
                 </p>
               </div>
