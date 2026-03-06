@@ -2,11 +2,15 @@ import { useState, useCallback, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import { useTenantStore } from '../stores/tenantStore'
+import { useContactModalStore } from '../stores/contactModalStore'
 import CtaButton from '../components/ui/CtaButton'
+
+const CONTACT_TRIGGER_HASHES = ['get-started', 'demo']
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const siteData = useTenantStore((s) => s.siteData)
+  const openContactModal = useContactModalStore((s) => s.open)
   const closeMobile = useCallback(() => setMobileOpen(false), [])
 
   useEffect(() => {
@@ -23,13 +27,18 @@ export default function Navbar() {
   const { brandName, navLinks, navCta, logo } = siteData
 
   const scrollToHash = useCallback((hash: string) => {
+    if (CONTACT_TRIGGER_HASHES.includes(hash)) {
+      openContactModal()
+      closeMobile()
+      return
+    }
     const el = document.getElementById(hash)
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' })
       window.history.pushState(null, '', `#${hash}`)
     }
     closeMobile()
-  }, [closeMobile])
+  }, [closeMobile, openContactModal])
 
   return (
     <>

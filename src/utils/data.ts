@@ -203,12 +203,21 @@ export interface FooterData {
   /** Tagline in bottom bar (e.g. "The Handshake for Alumni Networks") */
   handshakeTagline: string;
   backToTopLabel: string;
-  /** Newsletter signup (right side of footer) */
-  newsletter: {
-    heading: string;
-    placeholder: string;
-    submitLabel: string;
-  };
+}
+
+/** Contact form modal — used for get-started / demo CTAs across marketing pages */
+export interface ContactFormData {
+  title: string;
+  nameLabel: string;
+  namePlaceholder: string;
+  emailLabel: string;
+  emailPlaceholder: string;
+  phoneLabel: string;
+  phonePlaceholder: string;
+  subjectLabel: string;
+  subjectPlaceholder: string;
+  submitLabel: string;
+  closeLabel: string;
 }
 
 /** SEO and document head — per tenant for white-label (title, meta, og, twitter). */
@@ -247,6 +256,8 @@ export interface SiteData {
   aboutNetworkr: AboutNetworkrData;
   nextStep: NextStepData;
   footer: FooterData;
+  /** Contact form modal copy — reusable across CTAs */
+  contactForm: ContactFormData;
   /** SEO meta and document title — updated per tenant */
   seo: SeoData;
 }
@@ -264,6 +275,7 @@ export type SiteDataOverride = {
     | "aboutNetworkr"
     | "nextStep"
     | "footer"
+    | "contactForm"
     | "seo"
     ? Partial<SiteData[K]>
     : SiteData[K];
@@ -487,11 +499,20 @@ const defaultFooter: FooterData = {
   copyright: "© 2026 Networkr, Inc. All rights reserved.",
   handshakeTagline: "The Handshake for Alumni Networks",
   backToTopLabel: "Back to top",
-  newsletter: {
-    heading: "Stay in the loop",
-    placeholder: "Enter your email",
-    submitLabel: "Subscribe",
-  },
+};
+
+const defaultContactForm: ContactFormData = {
+  title: "Get in touch",
+  nameLabel: "Name",
+  namePlaceholder: "Your name",
+  emailLabel: "Email",
+  emailPlaceholder: "you@example.com",
+  phoneLabel: "Phone number",
+  phonePlaceholder: "+1 (555) 000-0000",
+  subjectLabel: "Subject",
+  subjectPlaceholder: "How can we help?",
+  submitLabel: "Send message",
+  closeLabel: "Close",
 };
 
 const defaultSeo: SeoData = {
@@ -531,6 +552,7 @@ const defaultSiteData: SiteData = {
   aboutNetworkr: defaultAboutNetworkr,
   nextStep: defaultNextStep,
   footer: defaultFooter,
+  contactForm: defaultContactForm,
   seo: defaultSeo,
 };
 
@@ -692,6 +714,7 @@ export function getSiteData(tenantId: string): SiteData {
     },
     nextStep: { ...defaultSiteData.nextStep, ...overrides.nextStep },
     footer: { ...defaultSiteData.footer, ...overrides.footer },
+    contactForm: { ...defaultSiteData.contactForm, ...overrides.contactForm },
     seo: { ...defaultSiteData.seo, ...overrides.seo },
     navLinks: overrides.navLinks ?? defaultSiteData.navLinks,
   };

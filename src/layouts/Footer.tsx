@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTenantStore } from '../stores/tenantStore'
 
@@ -6,63 +5,30 @@ export default function Footer() {
   const siteData = useTenantStore((s) => s.siteData)
   const brandName = siteData.brandName
   const footer = siteData.footer
-  const [email, setEmail] = useState('')
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!email.trim()) return
-    // TODO: wire to your newsletter API / backend
-    console.log('Newsletter signup:', email.trim())
-    setEmail('')
-  }
-
   return (
     <footer className="bg-white border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-6 pt-20 pb-12">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-8">
-          <div>
-            <Link
-              to="/"
-              className="flex items-center gap-1 mb-4 text-black hover:opacity-80 transition-opacity"
-            >
-              <img src={footer.logo} alt={brandName} className="w-8 md:w-10 h-8 md:h-10" />
-            </Link>
-            <p className="text-gray-500 text-sm leading-relaxed mb-6 max-w-xs">
-              {footer.tagline}
-            </p>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-50 border border-gray-100 text-xs text-gray-500">
-              <span
-                className="w-2 h-2 rounded-lg bg-green-400 inline-block animate-pulse"
-                aria-hidden
-              />
-              {footer.onboardingBadge}
-            </div>
-          </div>
-
-          <div className="w-full md:max-w-sm shrink-0">
-            <p className="text-sm font-medium text-gray-900 mb-3">
-              {footer.newsletter.heading}
-            </p>
-            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-2">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder={footer.newsletter.placeholder}
-                className="flex-1 min-w-0 px-4 h-9 rounded-lg border border-gray-200 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900/20 focus:border-gray-300 transition-colors"
-                aria-label={footer.newsletter.placeholder}
-              />
-              <button
-                type="submit"
-                className="px-5 h-9 rounded-lg bg-black text-white text-sm font-medium hover:bg-gray-800 transition-colors shrink-0"
-              >
-                {footer.newsletter.submitLabel}
-              </button>
-            </form>
+        <div>
+          <Link
+            to="/"
+            className="flex items-center gap-1 mb-4 text-black hover:opacity-80 transition-opacity"
+          >
+            <img src={footer.logo} alt={brandName} className="w-8 md:w-10 h-8 md:h-10" />
+          </Link>
+          <p className="text-gray-500 text-sm leading-relaxed mb-6 max-w-xs">
+            {footer.tagline}
+          </p>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-50 border border-gray-100 text-xs text-gray-500">
+            <span
+              className="w-2 h-2 rounded-lg bg-green-400 inline-block animate-pulse"
+              aria-hidden
+            />
+            {footer.onboardingBadge}
           </div>
         </div>
 
