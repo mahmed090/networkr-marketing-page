@@ -681,6 +681,23 @@ const tenantDataOverrides: Partial<Record<string, SiteDataOverride>> = {
       ogImage: "/university_of_Wah.png",
     },
   },
+  "kmu-university": {
+    institutionName: "Khyber Medical University",
+    solution: {
+      universityLogo: "/kmu-logo-3d.png",
+      universityName: "Khyber Medical University",
+    },
+    partnerOpportunity: {
+      universityName: "Khyber Medical University",
+    },
+    seo: {
+      title: "Networkr for Khyber Medical University — Alumni Network Activation",
+      description:
+        "Activate the Khyber Medical University alumni network. Networkr turns your alumni database into a structured private professional network for verified members.",
+      ogTitle: "Networkr for Khyber Medical University — Alumni Network Activation",
+      ogImage: "/kmu-logo-3d.png",
+    },
+  },
 };
 
 /**
