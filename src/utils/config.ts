@@ -22,6 +22,7 @@ export const DOMAIN_TO_TENANT: Record<string, string> = {
   'networkr-wah-university.vercel.app': 'wah-university',
   'networkr-cecos.vercel.app': 'cecos',
   'networkr-air-university.vercel.app': 'air-university',
+  'networkr-kmu-university.vercel.app': 'kmu-university',
   // local dev: optional
   'localhost': 'default',
 }
