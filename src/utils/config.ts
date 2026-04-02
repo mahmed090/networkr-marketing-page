@@ -80,6 +80,7 @@ export const DOMAIN_TO_TENANT: Record<string, string> = {
   'networkr-myu-isl.vercel.app': 'myu-isl',
   'networkr-abasyn-isl.vercel.app': 'abasyn-isl',
   'networkr-preston-isl.vercel.app': 'preston-isl',
+  'networkr-icp.vercel.app': 'icp',
   // local dev: optional
   'localhost': 'default',
 }

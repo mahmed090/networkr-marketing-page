@@ -1767,6 +1767,27 @@ const tenantDataOverrides: Partial<Record<string, SiteDataOverride>> = {
       ogImage: "/preston-isl.png",
     },
   },
+  "icp": {
+    institutionName: "Islamia College Peshawar (ICP)",
+    solution: {
+      universityLogo: "/icp.png",
+      universityName: "Islamia College Peshawar (ICP)",
+    },
+    partnerOpportunity: {
+      universityName: "Islamia College Peshawar (ICP)",
+    },
+    seo: {
+      title:
+        "Networkr for Islamia College Peshawar (ICP) — Alumni Network Activation",
+      description:
+        "Activate the Islamia College Peshawar (ICP) alumni network. Networkr turns your alumni database into a structured private professional network for verified members.",
+      ogTitle:
+        "Networkr for Islamia College Peshawar (ICP) — Alumni Network Activation",
+      ogDescription:
+        "Activate the Islamia College Peshawar (ICP) alumni network. Private, verified professional networking for alumni and students.",
+      ogImage: "/icp.png",
+    },
+  }
 };
 
 /**
