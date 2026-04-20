@@ -1767,6 +1767,44 @@ const tenantDataOverrides: Partial<Record<string, SiteDataOverride>> = {
       ogImage: "/preston-isl.png",
     },
   },
+  "uohr": {
+    institutionName: "University of Haripur",
+    solution: {
+      universityLogo: "/uoh.png",
+      universityName: "University of Haripur",
+    },
+    partnerOpportunity: {
+      universityName: "University of Haripur",
+    },
+    seo: {
+      title: "Networkr for University of Haripur — Alumni Network Activation",
+      description:
+        "Activate the University of Haripur alumni network. Networkr turns your alumni database into a structured private professional network for verified members.",
+      ogTitle: "Networkr for University of Haripur — Alumni Network Activation",
+      ogDescription:
+        "Activate the University of Haripur alumni network. Private, verified professional networking for alumni and students.",
+      ogImage: "/uoh.png",
+    },
+  },
+  "uet-mrd": {
+    institutionName: "UET Mardan",
+    solution: {
+      universityLogo: "/uet-mrd.png",
+      universityName: "UET Mardan",
+    },
+    partnerOpportunity: {
+      universityName: "UET Mardan",
+    },
+    seo: {
+      title: "Networkr for UET Mardan — Alumni Network Activation",
+      description:
+        "Activate the UET Mardan alumni network. Networkr turns your alumni database into a structured private professional network for verified members.",
+      ogTitle: "Networkr for UET Mardan — Alumni Network Activation",
+      ogDescription:
+        "Activate the UET Mardan alumni network. Private, verified professional networking for alumni and students.",
+      ogImage: "/uet-mrd.png",
+    },
+  },
   "icp": {
     institutionName: "Islamia College Peshawar (ICP)",
     solution: {
